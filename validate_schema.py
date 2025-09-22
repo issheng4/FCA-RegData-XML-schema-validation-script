@@ -71,7 +71,6 @@ def fix_schema_includes_programmatically(main_schema_path: str, supplementary_sc
         print(f'Error creating XMLSchema: {e}')
         sys.exit(1)
 
-
 def validate_submission_xml(schema: etree.XMLSchema, submission_xml_path: str) -> bool:
     """Validate XML submission against provided schema, returning validation status."""
     try:
@@ -88,7 +87,6 @@ def validate_submission_xml(schema: etree.XMLSchema, submission_xml_path: str) -
     except Exception as e:
         print(f'Error reading submission: {e}')
         return False
-
 
 def main() -> None:
     """Process command line arguments and validate submission."""
