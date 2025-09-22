@@ -32,19 +32,20 @@ Contains one valid FSA029 XML sample which will return successful, and one XML s
 
 ## How to run
 
-1. Ensure requirements are installed:
+1. Clone the repo.
+2. Ensure requirements are installed:
    - Python 3.8+
    - lxml library (`pip install lxml`)
 
-2. Place the following files in a schema folder:
+3. Place the following files in a schema folder:
    - FSA029-Schema.xsd
    - CommonTypes-Schema.xsd
 
    **Both schema files must be in the same directory.**
 
-   The contents of this schema folder should be changed depending on the schema (and any additional schema resources) you wish to validate
+   The contents of this schema folder should be changed depending on the schema (and any supplementary schema) you wish to validate.
 
-3. Run the script from command line:
+4. Run the script from command line:
    ```
    python validate_schema.py <path_to_schema_folder> <path_to_submission_XML>
    ```
