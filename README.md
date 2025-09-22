@@ -1,9 +1,14 @@
 # FCA RegData XML schema validation script
 
-## Background
-
 A Python script which validates an XML submission against the Bank of England's schema to ensure compliance (from the Financial Conduct Authority https://regdata.fca.org.uk/).
 
+## Contents
+- [Background](#background)
+- [Structure](#structure)
+- [How to run](#how-to-run)
+- [Output](#output)
+
+## Background
 The script is currently tailored to validate Balance Sheet submissions against the Bank of England FSA029 schema. It ensures that:
 
 - FSA029 submissions are validated against the FSA029 schema (the main schema)
