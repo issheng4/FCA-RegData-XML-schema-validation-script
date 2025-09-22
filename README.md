@@ -6,8 +6,8 @@ A Python script which validates an XML submission against the Bank of England's 
 
 The script is currently tailored to validate Balance Sheet submissions against the Bank of England FSA029 schema. It ensures that:
 
-- FSA029 submissions are validated against the FSA029 schema
-- CommonTypes schema dependencies are handled programmatically
+- FSA029 submissions are validated against the FSA029 schema (the main schema)
+- CommonTypes schema dependencies are handled programmatically (the supplementary schema)
 - Schema files remain unmodified before and after execution
 
 The script and folder contents can be editted to validate any different schema.
@@ -16,9 +16,14 @@ This script is useful for firms to confirm that their accounts submitted to the 
 
 ## Structure
 
-- `validate_schema.py` The script, currently to validate the FSA029 schema. The script contains notes with where to edit if you wish to validate other schemas.
-- `/schemas` Contains the FSA029 schema plus a CommonTypes external resource file which is imported into the FSA029 schema. These schemas can be swapped out for other XSD files from the FCA for whichever schemas you wish to validate .
-- `/samples` Contains one valid FSA029 XML sample which will return successful, and one XML sample which contains full sample data for all fields and thus will fail the validation as the Capital element with the `<xs:choice>` tag contains all possible options rather than just 1. These samples can be swapped out with a relevant data sample depending on what schemas are to be validated.
+#### `validate_schema.py`
+The script, currently to validate the FSA029 schema with CommonTypes supplementary schema. The script contains notes with where to edit if you wish to validate other schemas.
+
+#### `/schemas`
+Contains the FSA029 schema plus a CommonTypes supplementary schema file which is referenced with `<xs:include>` in the the FSA029 schema. These schemas can be swapped out for other XSD files from the FCA for whichever schemas you wish to validate. The supplementary schema is optional depending on the main schema's imports and includes.
+
+#### `/samples`
+Contains one valid FSA029 XML sample which will return successful, and one XML sample which contains full sample data for all fields and thus will fail the validation as the Capital element with the `<xs:choice>` tag contains all possible options rather than just 1. These samples can be swapped out with a relevant data sample depending on what schemas are to be validated.
 
 ## How to run
 
@@ -30,7 +35,9 @@ This script is useful for firms to confirm that their accounts submitted to the 
    - FSA029-Schema.xsd
    - CommonTypes-Schema.xsd
 
-   *Both schema files must be in the same directory.*
+   **Both schema files must be in the same directory.**
+
+   The contents of this schema folder should be changed depending on the schema (and any additional schema resources) you wish to validate
 
 3. Run the script from command line:
    ```
